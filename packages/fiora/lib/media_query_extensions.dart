@@ -1,12 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
+typedef ScreenValues = ({Size size, double width, double height});
+
 extension MediaExtensions on BuildContext {
   MediaQueryData get mediaQuery => MediaQuery.of(this);
 
-  Size get screenSize => mediaQuery.size;
-  double get screenWidth => mediaQuery.size.width;
-  double get screenHeight => mediaQuery.size.height;
+  ScreenValues get screen {
+    final Size size = mediaQuery.size;
+
+    return (size: size, width: size.width, height: size.height);
+  }
 
   EdgeInsets get padding => mediaQuery.padding;
 
@@ -19,12 +23,12 @@ extension DeviceExtensions on BuildContext {
   static const double _compactBreakpoint = 600;
   static const double _mediumBreakpoint = 840;
 
-  bool get isMobile => screenWidth < _compactBreakpoint;
+  bool get isMobile => screen.width < _compactBreakpoint;
 
   bool get isTablet =>
-      screenWidth >= _compactBreakpoint && screenWidth < _mediumBreakpoint;
+      screen.width >= _compactBreakpoint && screen.width < _mediumBreakpoint;
 
-  bool get isDesktop => screenWidth >= _mediumBreakpoint;
+  bool get isDesktop => screen.width >= _mediumBreakpoint;
 
   DeviceCategory get deviceCategory {
     if (isMobile) {
