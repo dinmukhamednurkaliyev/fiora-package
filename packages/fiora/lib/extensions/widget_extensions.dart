@@ -1,7 +1,6 @@
+import 'package:fiora/extensions/build_context_extension.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-
-import 'build_context_extension.dart';
 
 extension WidgetFlexExtension on Widget {
   Widget expanded({int flex = 1}) {

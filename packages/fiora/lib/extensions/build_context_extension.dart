@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 
-
 extension BuildContextExtension on BuildContext {
   ThemeData get theme => Theme.of(this);
 
@@ -58,19 +57,8 @@ extension BuildContextExtension on BuildContext {
     ),
   );
 
-  Sizes get size => (
-    padding: (
-      min: EdgeInsets.zero,
-      tight: EdgeInsets.all(4.0),
-      low: EdgeInsets.all(8.0),
-      base: EdgeInsets.all(12.0),
-      mid: EdgeInsets.all(16.0),
-      high: EdgeInsets.all(24.0),
-      wide: EdgeInsets.all(32.0),
-      loose: EdgeInsets.all(48.0),
-      max: EdgeInsets.all(64.0),
-    ),
-    spacing: (
+  Spacing get spacing => (
+    size: (
       min: 0.0,
       tight: 4.0,
       low: 8.0,
@@ -81,7 +69,10 @@ extension BuildContextExtension on BuildContext {
       loose: 48.0,
       max: 64.0,
     ),
-    icon: (
+  );
+
+  Icon get icon => (
+    size: (
       min: 12.0,
       tight: 16.0,
       low: 20.0,
@@ -94,17 +85,31 @@ extension BuildContextExtension on BuildContext {
     ),
   );
 
+  Padding get padding => (
+    size: (
+      min: EdgeInsets.zero,
+      tight: const EdgeInsets.all(4),
+      low: const EdgeInsets.all(8),
+      base: const EdgeInsets.all(12),
+      mid: const EdgeInsets.all(16),
+      high: const EdgeInsets.all(24),
+      wide: const EdgeInsets.all(32),
+      loose: const EdgeInsets.all(48),
+      max: const EdgeInsets.all(64),
+    ),
+  );
+
   Shapes get shape => (
     radius: (
       min: BorderRadius.zero,
-      tight: BorderRadius.circular(2.0),
-      low: BorderRadius.circular(4.0),
-      base: BorderRadius.circular(8.0),
-      mid: BorderRadius.circular(12.0),
-      high: BorderRadius.circular(16.0),
-      wide: BorderRadius.circular(24.0),
-      loose: BorderRadius.circular(32.0),
-      max: BorderRadius.circular(999.0),
+      tight: BorderRadius.circular(2),
+      low: BorderRadius.circular(4),
+      base: BorderRadius.circular(8),
+      mid: BorderRadius.circular(12),
+      high: BorderRadius.circular(16),
+      wide: BorderRadius.circular(24),
+      loose: BorderRadius.circular(32),
+      max: BorderRadius.circular(999),
     ),
   );
 
@@ -172,7 +177,11 @@ typedef TextSizes = ({
   double max,
 });
 
-typedef Sizes = ({PaddingSizes padding, SpacingSizes spacing, IconSizes icon});
+typedef Spacing = ({SpacingSizes size});
+
+typedef Icon = ({IconSizes size});
+
+typedef Padding = ({PaddingSizes size});
 
 typedef PaddingSizes = ({
   EdgeInsets min,
