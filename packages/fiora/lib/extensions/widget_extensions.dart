@@ -2,7 +2,7 @@ import 'package:fiora/extensions/build_context_extension.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
-extension WidgetFlexExtension on Widget {
+extension FioraWidgetFlexExtension on Widget {
   Widget expanded({int flex = 1}) {
     return Expanded(flex: flex, child: this);
   }
@@ -12,7 +12,7 @@ extension WidgetFlexExtension on Widget {
   }
 }
 
-extension WidgetInteractionExtension on Widget {
+extension FioraWidgetInteractionExtension on Widget {
   Widget onTap(
     VoidCallback onTap, {
     HitTestBehavior behavior = HitTestBehavior.opaque,
@@ -21,7 +21,7 @@ extension WidgetInteractionExtension on Widget {
   }
 }
 
-extension WidgetStylingExtension on Widget {
+extension FioraWidgetStylingExtension on Widget {
   Widget rounded(double radius) {
     return ClipRRect(borderRadius: BorderRadius.circular(radius), child: this);
   }
@@ -34,7 +34,7 @@ extension WidgetStylingExtension on Widget {
   }
 }
 
-extension WidgetBackgroundExtension on Widget {
+extension FioraWidgetBackgroundExtension on Widget {
   Widget backgroundColor(Color color) => DecoratedBox(
     decoration: BoxDecoration(color: color),
     child: this,
@@ -46,7 +46,7 @@ extension WidgetBackgroundExtension on Widget {
   );
 }
 
-extension WidgetVisibilityExtension on Widget {
+extension FioraWidgetVisibilityExtension on Widget {
   Widget visible({bool isVisible = false}) {
     return isVisible ? this : const SizedBox.shrink();
   }
